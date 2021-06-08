@@ -34,3 +34,9 @@ li {
 .body {
     margin-left: 20px;
 }
+
+a {
+    text-decoration: none !important;
+    color: white;
+    
+}

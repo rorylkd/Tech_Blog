@@ -5,6 +5,8 @@ const hbs = exphbs.create({});
 
 const sequelize = require('./config/connection');
 
+const routes = require('./controllers/routes');
+
 const app = express();
 
 let PORT = process.env.PORT;
@@ -15,8 +17,9 @@ if (PORT == null || PORT == "") {
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
+app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(require('./controllers/routes'))
+app.use(routes);
 
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log('Now listening on port', PORT));

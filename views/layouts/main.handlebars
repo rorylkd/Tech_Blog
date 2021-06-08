@@ -12,9 +12,15 @@
         <header>
            <nav>
                <div class="navbarItems">
-                    <li>Home</li>
-                    <li>Dashboard</li>
-                    <li>Login</li>
+                    <li><a href="http://localhost:8000/">Home</a></li>
+                    <li>
+                        {{#if loggedIn}}
+                        <a href="/dashboard">Dashboard</a>
+                        {{else}}
+                        <a href="/login">Dashboard</a>
+                        {{/if}}
+                    </li>
+                    <li><a href="http://localhost:8000/login">Login</a></li>
                </div>
 
                <div class ="blogTitle">
@@ -25,7 +31,7 @@
         </header>
 
         <main>
-            <div class="body">{{body}}</div>
+            <div class="body">{{{body}}}</div>
          </main>
          
     </body>
